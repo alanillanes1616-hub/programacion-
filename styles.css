@@ -1,148 +1,223 @@
-/* Configuración General */
 :root {
-    --azul-marino: #002d55;
-    --rojo-chile: #cf2e2e;
-    --blanco: #ffffff;
-    --gris-claro: #f4f4f4;
+    --primary: #002d55;
+    --accent: #cf2e2e;
+    --white: #ffffff;
+    --bg-light: #f4f7fa;
+    --shadow: 0 15px 35px rgba(0,45,85,0.1);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, sans-serif;
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
 }
 
-body {
-    overflow-x: hidden;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Navegación */
+body { 
+    background: var(--bg-light); 
+    color: var(--primary); 
+    line-height: 1.6;
+}
+
+/* Navbar con Blur */
 .navbar {
-    display: flex;
-    justify-content: space-between;
+    display: flex; 
+    justify-content: space-between; 
     align-items: center;
-    padding: 20px 5%;
-    background: var(--blanco);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
+    padding: 20px 10%; 
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(15px); 
+    position: sticky; 
+    top: 0; 
     z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--azul-marino);
+.logo { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.6rem; 
+    font-weight: 900; 
 }
 
-.logo span { color: var(--rojo-chile); }
+.logo span { 
+    color: var(--accent); 
+}
 
-.nav-links { display: flex; list-style: none; }
-.nav-links li { margin-left: 25px; }
-.nav-links a { text-decoration: none; color: var(--azul-marino); font-weight: 500; }
+.nav-links-desktop a { 
+    text-decoration: none; 
+    color: var(--primary); 
+    margin-left: 20px; 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+}
 
-/* Hero Section - CORREGIDO PARA MÓVIL */
+.nav-cta-mini { 
+    background: var(--primary); 
+    color: white !important; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+}
+
+/* Hero con Profundidad */
 .hero {
-    background: linear-gradient(rgba(0,45,85,0.8), rgba(0,45,85,0.8)), url('https://images.unsplash.com/photo-1500333314762-01c7478116f9?auto=format&fit=crop&q=80') no-repeat center center/cover;
-    height: 80vh;
-    display: flex;
-    align-items: center;
+    height: 95vh; 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
     justify-content: center;
-    text-align: center;
-    color: var(--blanco);
-    padding: 20px;
+    background: linear-gradient(rgba(0,45,85,0.7), rgba(0,45,85,0.7)), 
+                url('https://images.unsplash.com/photo-1590013330462-0775767f0224?q=80&w=2070') no-repeat center/cover;
+    color: white; 
+    overflow: hidden;
 }
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    max-width: 800px;
+.hero-content { 
+    position: relative; 
+    z-index: 2; 
+    text-align: center; 
+    max-width: 850px; 
+    padding: 0 20px; 
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+.badge-chile { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 10px; 
+    background: rgba(255,255,255,0.1); 
+    padding: 10px 20px; 
+    border-radius: 50px; 
+    border: 1px solid rgba(255,255,255,0.2); 
+    margin-bottom: 30px; 
+    backdrop-filter: blur(5px); 
 }
 
-/* Botones */
-.btn-primary {
-    background: var(--rojo-chile);
-    color: var(--blanco);
-    padding: 15px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-    display: inline-block;
+.badge-chile img { 
+    width: 25px; 
+    border-radius: 3px; 
 }
 
-.btn-primary:hover { transform: scale(1.05); background: #b02626; }
+.hero-content h1 { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 4rem; 
+    line-height: 1.1; 
+    margin-bottom: 25px; 
+    letter-spacing: -2px; 
+}
 
-/* Footer y Redes Sociales - ESTILO NAT GEO */
+.text-gradient { 
+    color: #ff4b2b;
+    font-weight: 900;
+}
+
+/* Tarjetas de Proceso */
+.features { 
+    padding: 80px 10%; 
+    margin-top: -80px; 
+    position: relative; 
+    z-index: 5; 
+}
+
+.container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+}
+
+.feature-card { 
+    background: white; 
+    padding: 40px; 
+    border-radius: 20px; 
+    box-shadow: var(--shadow); 
+    transition: 0.4s; 
+    border: 1px solid rgba(0,0,0,0.03); 
+}
+
+.feature-card:hover { 
+    transform: translateY(-10px); 
+}
+
+.icon-box { 
+    width: 60px; 
+    height: 60px; 
+    background: #eef5ff; 
+    border-radius: 15px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: var(--accent); 
+    font-size: 1.5rem; 
+    margin-bottom: 20px; 
+}
+
+/* Redes Sociales Dinámicas */
+.social-section { 
+    padding: 80px 10%; 
+    text-align: center; 
+}
+
+.social-grid-premium { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+    margin-top: 50px; 
+}
+
+.social-card { 
+    display: flex; 
+    align-items: center; 
+    padding: 25px; 
+    border-radius: 15px; 
+    text-decoration: none; 
+    color: white; 
+    transition: 0.3s; 
+}
+
+.instagram { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+.tiktok { background: #000; }
+.facebook { background: #1877f2; }
+
+.social-card:hover { 
+    transform: scale(1.03); 
+    filter: brightness(1.1); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+}
+
+.s-icon { 
+    font-size: 2rem; 
+    margin-right: 20px; 
+}
+
+/* Botón Principal */
+.btn-main-dynamic {
+    background: var(--accent); 
+    color: white; 
+    padding: 20px 45px; 
+    border-radius: 12px;
+    text-decoration: none; 
+    font-weight: 800; 
+    font-size: 1.1rem; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 15px;
+    box-shadow: 0 10px 20px rgba(207,46,46,0.3); 
+    transition: 0.4s;
+}
+
+/* Footer */
 footer {
-    background: #111;
-    color: var(--blanco);
-    padding: 60px 5% 20px;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 40px;
-}
-
-.footer-social-section h4 {
-    letter-spacing: 2px;
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: #888;
-}
-
-.social-bar {
-    display: flex;
-    gap: 25px;
-}
-
-.social-bar a {
-    color: var(--blanco);
-    font-size: 26px;
-    transition: 0.3s;
-}
-
-.social-bar a:hover {
-    color: var(--rojo-chile);
-    transform: translateY(-5px);
-}
-
-.footer-bottom {
+    background: #0a0a0a;
+    color: white;
+    padding: 40px 10%;
     text-align: center;
-    padding-top: 20px;
-    font-size: 12px;
-    color: #666;
 }
 
-/* RESPONSIVIDAD PARA CELULARES */
+/* Responsive */
 @media (max-width: 768px) {
-    .hero {
-        height: 70vh; /* Altura más cómoda en móvil */
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .social-bar {
-        justify-content: center;
-    }
-
-    .nav-links { display: none; } /* Simplifica el menú en móvil */
+    .hero-content h1 { font-size: 2.5rem; }
+    .features { margin-top: 20px; padding: 40px 5%; }
+    .nav-links-desktop { display: none; }
 }
