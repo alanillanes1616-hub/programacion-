@@ -1,412 +1,148 @@
-/* --- Variables CSS (Paleta de Colores Corporativa) --- */
+/* Configuración General */
 :root {
-    --color-primary: #D32F2F; /* Rojo vivo corporativo */
-    --color-secondary: #FF8A65; /* Claro/Naranja de acento */
-    --color-text-dark: #263238; /* Gris oscuro corporativo */
-    --color-text-light: #FAFAFA;
-    --color-bg-clean: #FFFFFF;
-    --color-bg-section: #F8F8F8; /* Gris muy suave */
-    --color-border-subtle: #E0E0E0;
-    --color-whatsapp: #25D366;
-    --font-family-corp: 'Montserrat', sans-serif;
+    --azul-marino: #002d55;
+    --rojo-chile: #cf2e2e;
+    --blanco: #ffffff;
+    --gris-claro: #f4f4f4;
 }
 
-/* --- Global Reset y Tipografía --- */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
-    font-family: var(--font-family-corp);
-    line-height: 1.6;
-    color: var(--color-text-dark);
-    background-color: var(--color-bg-clean);
     overflow-x: hidden;
-    scroll-behavior: smooth;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-h1, h2, h3, h4 {
-    line-height: 1.2;
-    margin-bottom: 0.5em;
-    font-weight: 700;
-}
-
-/* --- Botones --- */
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #A31F1F;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(211, 47, 47, 0.6);
-}
-
-.btn-outline {
-    display: inline-block;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-outline:hover {
-    background-color: var(--color-primary);
-    color: var(--color-bg-clean);
-}
-
-/* --- Botón Flotante de WhatsApp --- */
-.whatsapp-fixed-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: var(--color-whatsapp);
-    color: var(--color-text-light);
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.6rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    transition: transform 0.3s ease;
-}
-
-.whatsapp-fixed-btn:hover {
-    transform: scale(1.1);
-}
-
-/* --- 1. Header Corporativo --- */
-.header {
-    background-color: var(--color-bg-clean);
-    border-bottom: 1px solid var(--color-border-subtle);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-}
-
-.header-content {
+/* Navegación */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 0;
+    padding: 20px 5%;
+    background: var(--blanco);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
-    font-size: 1.8rem;
-    color: var(--color-primary);
+    font-size: 24px;
     font-weight: 800;
-    text-decoration: none;
+    color: var(--azul-marino);
 }
 
-.nav a {
-    color: var(--color-text-dark);
-    text-decoration: none;
-    margin-left: 2rem;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
+.logo span { color: var(--rojo-chile); }
 
-/* --- 2. Hero Section (Mapa Vintage y Propuesta de Valor) --- */
+.nav-links { display: flex; list-style: none; }
+.nav-links li { margin-left: 25px; }
+.nav-links a { text-decoration: none; color: var(--azul-marino); font-weight: 500; }
+
+/* Hero Section - CORREGIDO PARA MÓVIL */
 .hero {
-    position: relative;
-    height: 70vh;
-    min-height: 500px;
-    /* Mapa Vintage de Chile */
-    background: url('https://picsum.photos/1920/1080?random=1&blur=2') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.75); /* Oscuro más fuerte para alto contraste */
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-    color: var(--color-text-light);
-}
-
-.hero-text {
-    max-width: 700px;
-    padding: 20px;
-}
-
-.hero-text h1 {
-    font-size: 3.5rem;
-    font-weight: 900;
-    margin-bottom: 1.5rem;
-    color: var(--color-bg-clean); /* Título en blanco para impacto */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-.hero-text .subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 2.5rem;
-    color: var(--color-secondary); /* Subtítulo con acento */
-}
-
-/* --- Secciones Generales --- */
-.section {
-    padding: 6rem 0;
-    background-color: var(--color-bg-section);
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 4rem;
-    color: var(--color-primary);
-    font-weight: 800;
-}
-
-/* --- 3. Servicios (Grid) --- */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.service-card {
-    background-color: var(--color-bg-clean);
-    padding: 2.5rem 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra más definida */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    border-left: 5px solid var(--color-primary);
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-.service-icon {
-    font-size: 3.5rem;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-}
-
-.service-card h4 {
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-/* --- 4. Proceso (Línea de Tiempo Sofisticada) --- */
-.process-section {
-    background-color: var(--color-bg-clean);
-}
-
-.timeline-container {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Línea vertical central */
-.timeline-container::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background-color: var(--color-border-subtle);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1.5px;
-}
-
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 50%;
-}
-
-/* Contenido a la izquierda */
-.timeline-item:nth-child(odd) {
-    left: 0;
-    text-align: right;
-}
-
-/* Contenido a la derecha */
-.timeline-item:nth-child(even) {
-    left: 50%;
-    text-align: left;
-}
-
-/* Punto de conexión (el círculo) */
-.timeline-dot {
-    height: 40px;
-    width: 40px;
-    background-color: var(--color-primary);
-    border: 3px solid var(--color-secondary);
-    position: absolute;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
+    background: linear-gradient(rgba(0,45,85,0.8), rgba(0,45,85,0.8)), url('https://images.unsplash.com/photo-1500333314762-01c7478116f9?auto=format&fit=crop&q=80') no-repeat center center/cover;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-light);
-    font-size: 1.1rem;
-}
-
-/* Posición de los puntos */
-.timeline-item:nth-child(odd) .timeline-dot {
-    right: -20px; /* Se ajusta a la izquierda de la línea */
-}
-
-.timeline-item:nth-child(even) .timeline-dot {
-    left: -20px; /* Se ajusta a la derecha de la línea */
-}
-
-.timeline-content {
+    text-align: center;
+    color: var(--blanco);
     padding: 20px;
-    background-color: var(--color-bg-section);
-    position: relative;
-    border-radius: 6px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-.timeline-content h3 {
-    color: var(--color-primary);
 }
 
-
-/* --- 5. Footer Corporativo --- */
-.footer {
-    background: var(--color-text-dark);
-    color: var(--color-text-light);
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    max-width: 800px;
 }
 
-.footer-content {
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Botones */
+.btn-primary {
+    background: var(--rojo-chile);
+    color: var(--blanco);
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-primary:hover { transform: scale(1.05); background: #b02626; }
+
+/* Footer y Redes Sociales - ESTILO NAT GEO */
+footer {
+    background: #111;
+    color: var(--blanco);
+    padding: 60px 5% 20px;
+}
+
+.footer-container {
     display: flex;
     justify-content: space-between;
-    padding: 3rem 0;
     flex-wrap: wrap;
-    align-items: center;
+    gap: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 40px;
 }
 
-.footer-info p a {
-    color: var(--color-secondary);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-.footer-info p a:hover {
-    color: var(--color-primary);
+.footer-social-section h4 {
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #888;
 }
 
-.social-links a {
-    color: var(--color-text-light);
-    font-size: 1.5rem;
-    margin-left: 1.5rem;
-    transition: color 0.3s ease;
+.social-bar {
+    display: flex;
+    gap: 25px;
 }
 
-.social-links a:hover {
-    color: var(--color-primary);
+.social-bar a {
+    color: var(--blanco);
+    font-size: 26px;
+    transition: 0.3s;
+}
+
+.social-bar a:hover {
+    color: var(--rojo-chile);
+    transform: translateY(-5px);
 }
 
 .footer-bottom {
-    background-color: #1A1A1A;
     text-align: center;
-    padding: 1rem 0;
-    font-size: 0.8rem;
+    padding-top: 20px;
+    font-size: 12px;
+    color: #666;
 }
 
-/* --- Animaciones (Clase base y JS maneja el 'is-visible') --- */
-.animate-fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animate-fade-in.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Media Queries (Responsividad) --- */
+/* RESPONSIVIDAD PARA CELULARES */
 @media (max-width: 768px) {
-    /* Header */
-    .header-content {
-        flex-direction: column;
-    }
-    .nav {
-        margin-top: 1rem;
-        text-align: center;
-    }
-    .nav a {
-        margin: 0 0.5rem;
-        display: block;
-        padding: 5px 0;
-    }
-    /* Hero */
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
     .hero {
-        height: 60vh;
+        height: 70vh; /* Altura más cómoda en móvil */
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
         text-align: center;
+    }
+
+    .social-bar {
         justify-content: center;
     }
 
-    /* Timeline (Vertical simple para móvil) */
-    .timeline-container::after {
-        left: 31px; /* Mover línea a la izquierda */
-    }
-    .timeline-item {
-        width: 100%;
-        padding-left: 60px;
-        padding-right: 10px;
-        left: 0 !important;
-        text-align: left !important;
-    }
-    .timeline-item:nth-child(odd) .timeline-dot,
-    .timeline-item:nth-child(even) .timeline-dot {
-        left: 11px; /* Alinear todos los puntos a la izquierda */
-    }
-
-    /* Footer */
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .social-links {
-        margin-top: 1.5rem;
-    }
-    .social-links a {
-        margin: 0 10px;
-    }
+    .nav-links { display: none; } /* Simplifica el menú en móvil */
 }
