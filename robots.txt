@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alanillanes1616-hub.github.io/programacion-/sitemap.xml
