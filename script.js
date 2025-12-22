@@ -1,25 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const reveals = document.querySelectorAll('.reveal');
-
-    const revealOnScroll = () => {
-        for (let i = 0; i < reveals.length; i++) {
-            const windowHeight = window.innerHeight;
-            const elementTop = reveals[i].getBoundingClientRect().top;
-            const elementVisible = 150;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
+    // Observador para animaciones de aparición
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Animación del Navbar al Scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            nav.style.padding = "10px 0";
+            nav.style.background = "rgba(10, 25, 47, 0.98)";
+        } else {
+            nav.style.padding = "18px 0";
+            nav.style.background = "rgba(10, 25, 47, 0.95)";
         }
-    };
-
-    window.addEventListener("scroll", revealOnScroll);
-
-    // Inyectar estilos de animación
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1.2s all ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-    `;
-    document.head.appendChild(style);
+    });
 });

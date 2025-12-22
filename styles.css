@@ -1,43 +1,54 @@
 :root {
-    --navy: #001f3f;
-    --red: #cf2e2e;
-    --gold: #c5a059;
+    --deep-blue: #0a192f;   /* Azul medianoche de autoridad */
+    --bronze: #c5a059;      /* Dorado elegante para carnet y éxito */
+    --pearl: #f8fafc;       /* Gris perla para fondos */
+    --text-main: #1e293b;
     --white: #ffffff;
-    --glass: rgba(255, 255, 255, 0.1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Poppins', sans-serif; background: #f4f6f9; color: var(--navy); }
+body { font-family: 'Poppins', sans-serif; background: var(--pearl); color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
 
-/* NAVBAR */
-.navbar { position: fixed; width: 100%; z-index: 1000; background: rgba(0,31,63,0.95); backdrop-filter: blur(10px); padding: 15px 0; border-bottom: 2px solid var(--red); }
-.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
-.logo { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--white); font-size: 1.6rem; letter-spacing: 2px; }
-.logo span { color: var(--red); }
-.nav-links a { color: var(--white); text-decoration: none; margin-left: 25px; font-weight: 500; transition: 0.3s; }
-.btn-nav { background: var(--red); padding: 10px 20px; border-radius: 5px; }
+/* NAVBAR PROLIJA */
+.navbar { position: fixed; width: 100%; z-index: 2000; background: rgba(10, 25, 47, 0.95); backdrop-filter: blur(10px); padding: 18px 0; border-bottom: 1px solid var(--bronze); }
+.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--white); font-weight: 700; letter-spacing: 1px; }
+.logo span { color: var(--bronze); }
+.nav-links { display: flex; list-style: none; align-items: center; }
+.nav-links a { color: var(--white); text-decoration: none; font-size: 0.9rem; font-weight: 600; margin-left: 30px; transition: 0.3s; }
+.nav-cta { background: var(--bronze); padding: 12px 25px; border-radius: 4px; color: var(--deep-blue) !important; }
 
-/* HERO (Anti-plano) */
-.hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); position: relative; }
-.hero h1 { font-family: 'Montserrat', sans-serif; font-size: 5rem; line-height: 1; margin: 20px 0; }
-.text-accent { color: var(--red); text-shadow: 0 5px 15px rgba(207,46,46,0.5); }
-.hero-tag { font-weight: 700; letter-spacing: 5px; border-bottom: 2px solid var(--red); display: inline-block; padding-bottom: 5px; }
+/* HERO SECTION (Estilo Moreno Baldivieso) */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070') center/cover no-repeat; }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(10,25,47,0.85), rgba(10,25,47,0.85)); }
+.hero-content { position: relative; z-index: 10; max-width: 900px; padding: 0 20px; }
+.hero-subtitle { color: var(--bronze); font-weight: 700; letter-spacing: 4px; font-size: 0.8rem; margin-bottom: 20px; display: block; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 10vw, 5.5rem); line-height: 1.1; margin-bottom: 30px; }
+.gold-text { color: var(--bronze); }
+.hero p { font-size: 1.2rem; margin-bottom: 40px; color: rgba(255,255,255,0.8); }
 
 /* BOTONES DINÁMICOS */
-.btn-main { background: var(--red); color: white; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 30px rgba(207,46,46,0.4); transition: 0.4s; }
-.btn-main:hover { transform: translateY(-5px) scale(1.05); }
+.btn-gold { background: var(--bronze); color: var(--deep-blue); padding: 20px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 30px rgba(197,160,89,0.3); transition: 0.4s; display: inline-flex; align-items: center; gap: 10px; }
+.btn-gold:hover { transform: translateY(-5px); background: #b48e42; }
 
-/* TARJETAS PREMIUM */
-.services { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
-.card { background: var(--white); padding: 50px 30px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); transition: 0.4s; text-align: center; }
-.card i { font-size: 3rem; color: var(--navy); margin-bottom: 20px; }
-.card:hover { transform: translateY(-15px); border-bottom: 5px solid var(--red); }
+/* SERVICIOS PROLIJOS */
+.section { padding: 120px 20px; }
+.section-header { text-align: center; margin-bottom: 80px; }
+.section-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--deep-blue); }
+.grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+.s-card { background: var(--white); padding: 60px 40px; border-radius: 15px; box-shadow: 0 30px 60px rgba(0,0,0,0.05); transition: 0.4s; border-top: 5px solid transparent; }
+.s-card:hover { transform: translateY(-15px); border-top-color: var(--bronze); }
+.s-icon { font-size: 3rem; color: var(--bronze); margin-bottom: 25px; }
 
-/* CHATBOT ORGÁNICO */
-.chat-system { position: fixed; bottom: 30px; right: 30px; z-index: 2000; display: flex; align-items: center; gap: 15px; }
-.chat-msg { background: var(--white); padding: 12px 20px; border-radius: 15px 15px 0 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); font-weight: 600; font-size: 0.85rem; }
-.chat-btn { width: 65px; height: 65px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 10px 30px rgba(37,211,102,0.4); animation: pulse 2s infinite; }
+/* REDES SOCIALES (Estética Limpia) */
+.social-hub { background: var(--deep-blue); padding: 100px 20px; color: white; }
+.social-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 50px; }
+.social-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+.s-btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; color: white; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; display: flex; align-items: center; gap: 10px; }
+.s-btn:hover { background: var(--bronze); color: var(--deep-blue); border-color: var(--bronze); }
 
-@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+/* CHATBOT ORGANIZADO */
+.chatbot-container { position: fixed; bottom: 40px; right: 40px; z-index: 3000; display: flex; align-items: center; gap: 20px; }
+.chatbot-pop { background: white; padding: 15px 25px; border-radius: 15px 15px 0 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); font-weight: 700; font-size: 0.9rem; color: var(--deep-blue); }
+.chatbot-pop span { display: block; color: #25d366; font-size: 0.7rem; text-transform: uppercase; }
+.chatbot-btn { width: 75px; height: 75px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; text-decoration: none; box-shadow: 0 15px 40px rgba(37,211,102,0.4); }
