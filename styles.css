@@ -57,4 +57,29 @@ body { font-family: 'Poppins', sans-serif; background: var(--pearl); color: var(
 .floating-chat { position: fixed; bottom: 40px; right: 40px; z-index: 3000; display: flex; align-items: center; gap: 15px; }
 .chat-pop { background: var(--white); padding: 12px 20px; border-radius: 15px 15px 0 15px; box-shadow: var(--shadow); font-weight: 700; font-size: 0.85rem; border: 1px solid #eee; }
 .chat-pop span { color: #25d366; font-size: 0.7rem; }
-.whatsapp-btn { width: 70px; height: 70px; background: #25d366; color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; text-decoration: none; box-shadow: 0 15px 35px rgba(37,211,102,0.4); transition: 0.3s; }
+.whatsapp-btn { width: 70px; height: 70px; background: #25d366; color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; text-decoration: none; box-shadow: 0 15px 35px rgba(37,211,102,0.4); transition: 0.3s; }/* --- BARRA DE CONFIANZA FINAL --- */
+.trust-bar {
+    background: var(--gold); /* El dorado que ya definimos arriba */
+    padding: 30px 0;
+    color: var(--navy); /* El azul oscuro para que resalte el texto */
+    font-weight: 700;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.trust-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

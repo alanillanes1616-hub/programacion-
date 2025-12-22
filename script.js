@@ -16,4 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .reveal.visible { opacity: 1; transform: translateY(0); }
     `;
     document.head.appendChild(style);
-});
+});// Efecto de aparición del mensaje del Chatbot con retraso
+setTimeout(() => {
+    const chatPop = document.querySelector('.chat-pop');
+    if(chatPop) {
+        chatPop.style.opacity = '1';
+        chatPop.style.transform = 'translateY(0)';
+    }
+}, 3000); 
+
+// Agrega este estilo al CSS para que empiece oculto
+// .chat-pop { opacity: 0; transform: translateY(20px); transition: 0.5s; }
