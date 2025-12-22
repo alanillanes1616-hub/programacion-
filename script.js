@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Observador para animaciones de aparición
-    const revealObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -8,17 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Animación del Navbar al Scroll
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            nav.style.padding = "10px 0";
-            nav.style.background = "rgba(10, 25, 47, 0.98)";
-        } else {
-            nav.style.padding = "18px 0";
-            nav.style.background = "rgba(10, 25, 47, 0.95)";
-        }
-    });
+    // Estilo inyectado para la animación
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    `;
+    document.head.appendChild(style);
 });
