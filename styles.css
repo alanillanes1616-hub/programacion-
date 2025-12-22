@@ -1,41 +1,28 @@
-/* Efecto de revelación suave */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+/* Base necesaria para que no se vea desconfigurado */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
 }
 
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Botón con efecto de brillo "vivo" */
-.btn-main-dynamic {
+.hero {
     position: relative;
-    overflow: hidden;
-    background: linear-gradient(45deg, #cf2e2e, #ff4d4d);
-    transition: 0.3s;
+    padding: 100px 20px;
+    background: #002d55;
+    color: white;
+    text-align: center;
 }
 
-.btn-main-dynamic::after {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: rgba(255,255,255,0.2);
-    transform: rotate(45deg);
-    transition: 0.5s;
-}
-
-.btn-main-dynamic:hover::after {
-    left: 120%;
-}
-
-/* Redes sociales con profundidad real */
+/* Efectos de Redes Sociales Premium */
 .social-card {
     background: rgba(255, 255, 255, 0.8) !important;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(0,0,0,0.05) !important;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.social-card:hover {
+    transform: translateY(-10px);
 }
