@@ -1,13 +1,14 @@
-// Animación de aparición suave
+// Animación de entrada al hacer scroll
+const observerOptions = { threshold: 0.1 };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+            entry.target.classList.add('visible');
         }
     });
-});
+}, observerOptions);
 
-document.querySelectorAll('.feature-card, .social-card').forEach(el => {
-    el.classList.add('fade-in');
+document.querySelectorAll('.feature-card, .social-card, .hero-content').forEach(el => {
+    el.classList.add('reveal');
     observer.observe(el);
 });
